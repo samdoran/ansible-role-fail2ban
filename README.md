@@ -1,6 +1,6 @@
 Fail2ban
 =========
-[![Galaxy](https://img.shields.io/badge/galaxy-samdoran.java-blue.svg?style=flat)](https://galaxy.ansible.com/samdoran/fail2ban)
+[![Galaxy](https://img.shields.io/badge/galaxy-samdoran.fail2ban-blue.svg?style=flat)](https://galaxy.ansible.com/samdoran/fail2ban)
 [![Build Status](https://travis-ci.org/samdoran/ansible-role-fail2ban.svg?branch=master)](https://travis-ci.org/samdoran/ansible-role-fail2ban)
 
 Install and configure [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page).

@@ -1,0 +1,31 @@
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+  when: ansible_distribution != 'Ubuntu'
+
+- name: Include variables for Ubuntu
+  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+  when: ansible_distribution == 'Ubuntu'
+
+- include_tasks: "install-{{ ansible_os_family }}.yml"
+  tags:
+    - fail2ban
+
+- name: Copy jail files
+  template:
+    src: "{{ item }}"
+    dest: "{{ fail2ban_jail_path }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_fileglob: jailfiles/*
+  notify: restart fail2ban
+  tags:
+    - fail2ban
+
+- name: Start and enable fail2ban service
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
+  tags:
+    - fail2ban

@@ -1,0 +1,4 @@
+- name: RHEL | Install packages
+  yum:
+    name: fail2ban
+    state: latest

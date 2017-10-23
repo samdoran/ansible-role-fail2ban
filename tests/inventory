@@ -1,0 +1,5 @@
+fail2ban-centos6 ansible_host=10.77.19.100
+fail2ban-centos7 ansible_host=10.77.19.101
+fail2ban-ub12 ansible_host=10.77.19.102
+fail2ban-ub14 ansible_host=10.77.19.103
+fail2ban-ub16 ansible_host=10.77.19.104

@@ -1,0 +1,8 @@
+[sshd]
+enabled = true
+port = ssh
+action = firewallcmd-ipset
+logpath = %(sshd_log)s
+maxretry = 5
+bantime = 86400
+ignoreip = {% for ip in fail2ban_ignore_ips %}{{ ip }}{% if not loop.last %}, {% endif %}{% endfor %}

@@ -1,10 +1,13 @@
 - name: Include distribution specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
-  when: ansible_distribution != 'Ubuntu'
-
-- name: Include variables for Ubuntu
-  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
-  when: ansible_distribution == 'Ubuntu'
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+    - main.yml
+  tags:
+    - always
+    - fail2ban
 
 - include_tasks: "install-{{ ansible_os_family }}.yml"
   tags:
@@ -26,6 +29,6 @@
   service:
     name: fail2ban
     state: started
-    enabled: yes
+    enabled: true
   tags:
     - fail2ban

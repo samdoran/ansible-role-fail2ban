@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: fail2ban
   author: Sam Doran
   description: Fail2ban keeps the baddies out of your servers
   company: Ansible by Red Hat

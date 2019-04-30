@@ -1,2 +1,3 @@
 - name: DEBIAN |
-  command: /bin/false
+  debug:
+    msg: Placeholder for Debian tasks

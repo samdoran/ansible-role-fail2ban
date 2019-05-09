@@ -24,7 +24,7 @@
     dest: "{{ fail2ban_jail_path }}"
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   with_fileglob: jailfiles/*
   notify: restart fail2ban
   tags:

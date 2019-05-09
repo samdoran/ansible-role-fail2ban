@@ -3,7 +3,7 @@ galaxy_info:
   author: Sam Doran
   description: Fail2ban keeps the baddies out of your servers
   company: Ansible by Red Hat
-  license: MIT
+  license: Apache 2.0
   min_ansible_version: 2.5
 
   platforms:
